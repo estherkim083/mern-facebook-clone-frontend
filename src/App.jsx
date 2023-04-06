@@ -6,10 +6,14 @@ import LoggedInRoutes from "./routes/LoggedInRoutes";
 import AlreadyLoggedInRoutes from "./routes/AlreadyLoggedInRoutes";
 import Activate from "./pages/HomePage/activate";
 import Reset from "./pages/Reset";
+import CreatePostPopup from "./components/CreatePostPopup";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { user } = useSelector((state) => ({ ...state }));
   return (
     <div>
+      <CreatePostPopup user={user} />
       <Routes>
         <Route element={<LoggedInRoutes />}>
           <Route exact path="/" element={<HomePage />} />
