@@ -7,9 +7,9 @@ import Stories from "../../components/Home/stories";
 import "./style.css";
 import CreatePost from "../../components/CreatePost";
 import SendVerification from "../../components/Home/sendVerif";
-export default function HomePage() {
+export default function HomePage({ setVisible }) {
   const { user } = useSelector((state) => ({ ...state }));
-  console.log(user);
+
   return (
     <div className="home">
       <Header />
@@ -17,7 +17,7 @@ export default function HomePage() {
       <div className="home_middle">
         <Stories />
         {!user?.verified && <SendVerification user={user} />}
-        <CreatePost user={user} />
+        <CreatePost user={user} setVisible={setVisible} />
       </div>
       <RightHome user={user} />
     </div>

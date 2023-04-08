@@ -20,7 +20,8 @@
     margin-left: 5%;
   }
   .right_home {
-    width: 18vw;
+    /* width: 18vw; */
+    display: none !important;
   }
 }
 @media (max-width: 1030px) {

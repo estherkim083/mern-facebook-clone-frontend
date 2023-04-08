@@ -530,7 +530,8 @@ header {
   }
 }
 @media (max-width: 550px) {
-  .middle_icon:nth-child(1) {
+  .middle_icon:nth-child(1), 
+  .middle_icon:nth-child(2) {
     display: none;
   }
   .header_middle {
@@ -555,7 +556,7 @@ header {
     margin-bottom: 1rem;
   }
 }
-@media (max-width: 400px) {
+@media (max-wikdth: 400px) {
   .header_right .circle_icon:nth-child(3) {
     display: none;
   }
@@ -564,6 +565,12 @@ header {
   }
   .all_menu {
     left: -12.5rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .header_right {
+    display:none;
   }
 }
 /*---responsive----------*/
