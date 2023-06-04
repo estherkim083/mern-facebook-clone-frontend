@@ -1,4 +1,4 @@
-import EmojiPicker from "emoji-picker-react";
+import "emoji-picker-element";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function EmojiPickerBg({
@@ -17,9 +17,18 @@ export default function EmojiPickerBg({
   const bgRef = useRef(null);
 
   useEffect(() => {
+    if (picker) {
+      document
+        .querySelector("emoji-picker")
+        .addEventListener("emoji-click", (event) =>
+          handleEmoji(event.detail.unicode)
+        );
+    }
+  }, [picker]);
+  useEffect(() => {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
-  const handleEmoji = ({ emoji }) => {
+  const handleEmoji = (emoji) => {
     const ref = textRef.current;
     ref.focus();
     const start = text.substring(0, ref.selectionStart);
@@ -76,10 +85,7 @@ export default function EmojiPickerBg({
               type2 ? "movepicker2" : showBg ? "rlmove2" : "rlmove"
             }`}
           >
-            <EmojiPicker
-              emojiStyle="twitter"
-              onEmojiClick={(emojiObject) => handleEmoji(emojiObject)}
-            />
+            <emoji-picker></emoji-picker>
           </div>
         )}
         {!type2 && (

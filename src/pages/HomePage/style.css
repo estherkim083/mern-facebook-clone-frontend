@@ -1,9 +1,9 @@
 .home {
-  min-height: 100vh;
   background: var(--bg-secondary);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
 .home_middle {
   margin-top: 75px;
   position: absolute;
@@ -13,7 +13,7 @@
 @media (max-width: 1175px) {
   .stories,
   .createPost,
-  .send_verification {
+  .post, .send_verification {
     width: 84%;
   }
   .home_middle {
@@ -59,12 +59,12 @@
   }
   .stories,
   .createPost,
-  .send_verification {
+  .post, .send_verification {
     width: 100%;
   }
 }
 @media (max-width: 960px) {
-  .createPost,.send_verification {
+  .createPost, .send_verification {
     width: 93%;
   }
   .stories {
@@ -86,6 +86,10 @@
   .contacts_header_right {
     right: 0;
   }
+  .post {
+    width: 100% !important;
+    margin-top: 15px;
+  }
 }
 @media (max-width: 885px) {
   .right_home {
@@ -99,6 +103,10 @@
   }
   .home_middle {
     margin-left: 9%;
+  }
+  .post {
+    width: 100% !important;
+    margin-top: 15px;
   }
 }
 @media (max-width: 805px) {
@@ -126,6 +134,9 @@
     width: 70vw !important;
   }
 }
+.post {
+  margin-top: 30px;
+}
 @media (max-width: 620px) {
   .left_home {
     display: none;
@@ -136,8 +147,12 @@
     padding: 10px;
   }
   .stories,
-  .createPost,.send_verification {
+  .createPost, .send_verification {
     width: 80% !important;
+  }
+  .post {
+    width: 80% !important;
+    margin-top: 15px;
   }
   .stories .white_circle {
     display: none;
