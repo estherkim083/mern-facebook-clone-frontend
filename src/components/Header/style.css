@@ -580,3 +580,8 @@ header {
 .active_header svg {
   color: var(--blue-color)
 }
+
+.active_link {
+  background:var(--light-blue-color);
+  color: var(--blue-color)
+}

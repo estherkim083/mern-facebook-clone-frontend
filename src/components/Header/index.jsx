@@ -3,6 +3,7 @@ import {
   ArrowDown,
   Friends,
   Gaming,
+  Home,
   HomeActive,
   Logo,
   Market,
@@ -20,7 +21,7 @@ import { useRef } from "react";
 import clickOutside from "../../helpers/clickOutside";
 import UserMenu from "./UserMenu";
 import { Link } from "react-router-dom";
-export default function Header() {
+export default function Header({ page }) {
   const { user } = useSelector((user) => ({ ...user }));
   const [showScreenMenu, setShowScreenMenu] = useState(false);
   const [showAllMenu, setShowAllMenu] = useState(false);
@@ -61,8 +62,15 @@ export default function Header() {
         <SearchMenu color={color} setShowScreenMenu={setShowScreenMenu} />
       )}
       <div className="header_middle">
-        <Link to="/" className="middle_icon active">
-          <HomeActive color={color} />
+        <Link
+          to="/"
+          className={`middle_icon ${page === "home" ? "active" : "hover1"}`}
+        >
+          {page === "home" ? (
+            <HomeActive color={color} />
+          ) : (
+            <Home color={color} />
+          )}
         </Link>
         <Link to="/" className="middle_icon hover1">
           <Friends color={color} />
@@ -79,7 +87,12 @@ export default function Header() {
         </Link>
       </div>
       <div className="header_right">
-        <Link className="profile_link hover1" to="/profile">
+        <Link
+          className={`profile_link hover1 ${
+            page === "profile" ? "active_link" : ""
+          }`}
+          to="/profile"
+        >
           <img src={user?.picture} alt="프로필이미지" />
           <span>{user?.first_name}</span>
         </Link>

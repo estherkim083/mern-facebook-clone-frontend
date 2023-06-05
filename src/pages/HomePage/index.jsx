@@ -18,7 +18,7 @@ export default function HomePage({ setVisible, posts }) {
   console.log(height);
   return (
     <div className="home" style={{ minHeight: `${height + 300}vh` }}>
-      <Header />
+      <Header page="home" />
       <LeftHome user={user} />
       <div className="home_middle" ref={middle}>
         <Stories />
