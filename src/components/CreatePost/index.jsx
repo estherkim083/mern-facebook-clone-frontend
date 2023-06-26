@@ -4,7 +4,7 @@ import { Feeling, LiveVideo, Photo } from "../../svg";
 
 export default function CreatePost({ user, setVisible, profile }) {
   return (
-    <div className="createPost">
+    <div className={`${profile ? "createPostSub" : "createPost"}`}>
       <div className="createPost_header">
         <img src={user?.picture} alt="" />
         <div

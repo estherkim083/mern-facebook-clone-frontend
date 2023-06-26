@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const createPost = async (
   type,
   background,
@@ -9,7 +8,7 @@ export const createPost = async (
   token
 ) => {
   try {
-    const { data } = await axios.post(
+    const data = await axios.post(
       `${import.meta.env.VITE_APP_BACKEND_URL}/createPost`,
       {
         type,
@@ -24,8 +23,99 @@ export const createPost = async (
         },
       }
     );
+    console.log(data);
+    return { status: "ok", data };
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+export const reactPost = async (postId, react, token) => {
+  try {
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_APP_BACKEND_URL}/reactPost`,
+      {
+        postId,
+        react,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return "ok";
-  } catch (err) {
-    return err.reponse.data.message;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+export const getReacts = async (postId, token) => {
+  try {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_APP_BACKEND_URL}/getReacts/${postId}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+export const comment = async (postId, comment, image, token) => {
+  try {
+    console.log(comment);
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_APP_BACKEND_URL}/comment`,
+      {
+        postId,
+        comment,
+        image,
+      },
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+export const savePost = async (postId, token) => {
+  try {
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_APP_BACKEND_URL}/savePost/${postId}`,
+      {},
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
+export const deletePost = async (postId, token) => {
+  try {
+    const { data } = await axios.delete(
+      `${import.meta.env.VITE_APP_BACKEND_URL}/deletePost/${postId}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    return error.response.data.message;
   }
 };

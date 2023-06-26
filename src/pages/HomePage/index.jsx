@@ -8,7 +8,7 @@ import "./style.css";
 import CreatePost from "../../components/CreatePost";
 import SendVerification from "../../components/Home/sendVerif";
 import Post from "../../components/post";
-export default function HomePage({ setVisible, posts }) {
+export default function HomePage({ setVisible, posts, loading, getAllPosts }) {
   const { user } = useSelector((state) => ({ ...state }));
   const middle = useRef(null);
   const [height, setHeight] = useState();

@@ -12,8 +12,8 @@ export default function PeopleUMayKnow() {
         </div>
       </div>
       <div className="pplumayknow_list">
-        {stories.map((item) => (
-          <AddFriendSmallCard item={item} />
+        {stories.map((item, i) => (
+          <AddFriendSmallCard key={i} item={item} />
         ))}
       </div>
     </div>

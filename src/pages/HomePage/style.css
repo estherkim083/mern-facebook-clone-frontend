@@ -24,6 +24,11 @@
     display: none !important;
   }
 }
+@media (max-width: 620px) {
+  .createPostSub {
+    width: 100% !important;
+  }
+}
 @media (max-width: 1030px) {
   .left_home .left_link span,
   .left_home .left_link .col,
